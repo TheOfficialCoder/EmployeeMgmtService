@@ -7,18 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddEmployeeComponent } from './components/add-employee/add-employee.component';
 import { UpdateEmployeeComponent } from './components/update-employee/update-employee.component';
 import { EmployeeDetailComponent } from './components/employee-detail/employee-detail.component';
-import { Route, RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-const employeeRoutes: Routes = [
-  {
-    path: 'employee',
-    children: [
-      { path: '/all', component: EmployeeListComponent },
-      { path: '/add', component: AddEmployeeComponent },
-      { path: '/update', component: UpdateEmployeeComponent }
-    ]
-  }
-]
+
 
 @NgModule({
   declarations: [
@@ -28,7 +19,7 @@ const employeeRoutes: Routes = [
     EmployeeDetailComponent
   ],
   imports: [
-    CommonModule, HttpClientModule, RouterModule.forChild(employeeRoutes)
+    CommonModule, HttpClientModule,
   ],
   providers: [
     {
@@ -37,6 +28,6 @@ const employeeRoutes: Routes = [
     },
     EmployeeService
   ],
-  exports: [EmployeeListComponent,RouterModule]
+  exports: [EmployeeListComponent, RouterModule]
 })
 export class EmployeeModule { }
